@@ -6,12 +6,12 @@ const initState = {
 
 const rootReducer = (state = initState, action) => {
   switch (action.type) {
-    case "INCRE":
+    case "INCR":
       return {
         ...state,
         value: state.value + action.newValue,
       };
-    case "DECRE":
+    case "DECR":
       return {
         ...state,
         value: state.value - action.newValue,
@@ -25,11 +25,11 @@ const store = configureStore({
   reducer: rootReducer,
 });
 
-const reduxSubcriber = () => {
+const reduxSubscriber = () => {
   const lastState = store.getState();
   console.log(lastState);
 };
-store.subscribe(reduxSubcriber);
+store.subscribe(reduxSubscriber);
 
-store.dispatch({ type: "INCRE", newValue: 1 });
-store.dispatch({ type: "DECRE", newValue: 1 });
+store.dispatch({ type: "INCR", newValue: 1 });
+store.dispatch({ type: "DECR", newValue: 1 });
